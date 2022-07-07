@@ -1,4 +1,6 @@
-import { AccountModel } from "../models/accountModel";
+/* eslint-disable @typescript-eslint/quotes */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { AccountModel } from "../models/accountModel"
 
 type AuthenticationParams = {
   email: string
