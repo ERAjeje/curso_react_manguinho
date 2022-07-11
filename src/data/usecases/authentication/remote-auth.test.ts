@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { mockAuthentication } from '@/domain/test/mock-authentication'
+import { mockAccountModel, mockAuthentication } from '@/domain/test/mock-account'
 import { HttpPostClientSpy } from '@/data/test/mock-http-client'
 import RemoteAuthentication from './remote-auth'
 import faker from 'faker'
@@ -43,6 +43,16 @@ describe('RemoteAuthentication', () => {
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new InvalidCredentialsError('Invalid credentials'))
+  })
+  it('Should return an AccountModel if HttpPostClient returns 200', async () => {
+    const { sut, httpPostClientSpy } = makeSut()
+    const fakeAccount = mockAccountModel()
+    httpPostClientSpy.response = {
+      statusCode: HttpStatusCode.OK,
+      body: fakeAccount
+    }
+    const account = await sut.auth(mockAuthentication())
+    expect(account).toEqual(fakeAccount)
   })
   it('Should throw UnexpectedError if HttpPostClient returns 400', async () => {
     const { sut, httpPostClientSpy } = makeSut()
