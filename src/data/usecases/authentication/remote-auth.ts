@@ -8,7 +8,9 @@ export default class RemoteAuthentication {
   async auth (params: AuthenticationParams): Promise<void> {
     const httpResponse = await this.httpPostClient.post({ url: this.url, body: params })
     switch (httpResponse.statusCode) {
+      case HttpStatusCode.OK: break
       case HttpStatusCode.unathorized: throw new Error('Invalid credentials')
+      default: throw new Error('Try again')
     }
   }
 }
