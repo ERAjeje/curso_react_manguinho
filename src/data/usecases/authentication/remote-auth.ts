@@ -5,13 +5,26 @@ import { AccountModel } from '@/domain/models'
 import { InvalidCredentialsError, UnexpectedError } from '@/domain/errors'
 
 export default class RemoteAuthentication implements IAuthentication {
-  constructor (private readonly url: string, private readonly httpPostClient: HttpPostClient<AuthenticationParams, AccountModel>) {}
+  constructor (
+    private readonly url: string,
+    private readonly httpPostClient: HttpPostClient<
+    AuthenticationParams,
+    AccountModel
+    >
+  ) {}
+
   async auth (params: AuthenticationParams): Promise<AccountModel> {
-    const httpResponse = await this.httpPostClient.post({ url: this.url, body: params })
+    const httpResponse = await this.httpPostClient.post({
+      url: this.url,
+      body: params
+    })
     switch (httpResponse.statusCode) {
-      case HttpStatusCode.OK: return httpResponse.body as AccountModel
-      case HttpStatusCode.unathorized: throw new InvalidCredentialsError('Invalid credentials')
-      default: throw new UnexpectedError('Try again')
+      case HttpStatusCode.OK:
+        return httpResponse.body as AccountModel
+      case HttpStatusCode.unauthorized:
+        throw new InvalidCredentialsError('Invalid credentials')
+      default:
+        throw new UnexpectedError('Try again')
     }
   }
 }

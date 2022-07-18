@@ -14,7 +14,10 @@ type SutTypes = {
 }
 
 const makeSut = (url: string = faker.internet.url()): SutTypes => {
-  const httpPostClientSpy = new HttpPostClientSpy<AuthenticationParams, AccountModel>()
+  const httpPostClientSpy = new HttpPostClientSpy<
+  AuthenticationParams,
+  AccountModel
+  >()
   const sut = new RemoteAuthentication(url, httpPostClientSpy)
   return {
     sut,
@@ -38,10 +41,12 @@ describe('RemoteAuthentication', () => {
   it('Should throw InvalidCredentialsError if HttpPostClient returns 401', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.response = {
-      statusCode: HttpStatusCode.unathorized
+      statusCode: HttpStatusCode.unauthorized
     }
     const promise = sut.auth(mockAuthentication())
-    await expect(promise).rejects.toThrow(new InvalidCredentialsError('Invalid credentials'))
+    await expect(promise).rejects.toThrow(
+      new InvalidCredentialsError('Invalid credentials')
+    )
   })
   it('Should return an AccountModel if HttpPostClient returns 200', async () => {
     const { sut, httpPostClientSpy } = makeSut()
