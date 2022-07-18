@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { HttpPostParams } from '@/data/protocols/http'
 import axios from 'axios'
 import faker from 'faker'
 import { AxiosHttpClient } from './axios-http-client'
@@ -10,11 +12,16 @@ const makeSut = (): AxiosHttpClient => {
   return new AxiosHttpClient()
 }
 
+const makePostParams = (): HttpPostParams<any> => ({
+  url: faker.internet.url(),
+  body: faker.random.objectElement()
+})
+
 describe('AxiosHttpClient', () => {
-  it('Should call axios with correct URL and verb', async () => {
-    const httpUrl = faker.internet.url()
+  it('Should call axios with correct params and verb', async () => {
+    const params = makePostParams()
     const sut = makeSut()
-    await sut.post({ url: httpUrl, body: {} })
-    expect(mockedAxios.post).toHaveBeenCalledWith(httpUrl, {})
+    await sut.post(params)
+    expect(mockedAxios.post).toHaveBeenCalledWith(params.url, params.body)
   })
 })
