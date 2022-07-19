@@ -7,8 +7,7 @@
     "test": "jest --passWithNoTests",
     "test:watch": "npm test -- --watchAll",
     "test:staged": "npm test -- --findRelatedTests",
-    "test:ci": "jest test -- --coverage",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "test:ci": "jest test -- --coverage"
   },
   "keywords": [],
   "author": "",
