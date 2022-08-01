@@ -15,10 +15,24 @@ module.exports = {
             '@': path.join(__dirname, 'src')
         }
     },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ]
+    },
     devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        writeToDisk: true,
+        static: './public',
         historyApiFallback: true,
+        devMiddleware: {
+            writeToDisk: true,
+        }
     },
     externals: {
         'react': 'React',
