@@ -1,7 +1,8 @@
-import Image from "@/presentation/components/logo";
+import Footer from "@/presentation/components/footer";
+import Header from "@/presentation/components/header";
 import Spinner from "@/presentation/components/spinner/spinner";
 import React from "react"
-import { LoginContainer, LoginFooter, LoginForm, LoginHeader, LoginSignup } from './style';
+import { LoginContainer, LoginForm, LoginSignup } from './styles';
 
 const Login: React.FC = () => {
     const [success, setSuccess] = React.useState(true);
@@ -17,10 +18,7 @@ const Login: React.FC = () => {
     }
     return (
       <LoginContainer>
-        <LoginHeader>
-          <Image />
-          <h1>Nome do Sistema</h1>
-        </LoginHeader>
+        <Header />
         <LoginForm onSubmit={handleSubmit}>
           <h4>Login</h4>
           <input type="email" name="email" placeholder="Digite seu e-mail" />
@@ -32,7 +30,7 @@ const Login: React.FC = () => {
           {success ? <button type="submit">Entrar</button> : <Spinner />}
           <LoginSignup href="#">Criar conta</LoginSignup>
         </LoginForm>
-        <LoginFooter />
+        <Footer />
       </LoginContainer>
     )
 }

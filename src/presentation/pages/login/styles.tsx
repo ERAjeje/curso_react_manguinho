@@ -71,29 +71,3 @@ export const LoginSignup = styled.a`
         cursor: pointer;
     }
 `
-
-export const LoginHeader = styled.div`
-  width: 100%;
-  display: flex;
-  direction: row;
-  align-items: center;
-  padding: 20px 60px;
-  box-sizing: border-box;
-  justify-content: center;
-  background-color: #7b1fa2;
-  color: #fff;
-  & h1 {
-    font-size: 24px;
-    margin-left: 24px;
-  }
-`
-
-export const LoginFooter = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 5%;
-  background-color: #7b1fa2;
-`
