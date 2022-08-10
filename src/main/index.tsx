@@ -1,6 +1,6 @@
-import { Login } from "@/presentation/pages"
 import React from "react"
 import ReactDOM from "react-dom"
 import '@/global.css'
+import RouterApp from "@/presentation/router/router"
 
-ReactDOM.render(<Login />, document.getElementById("main"))
+ReactDOM.render(<RouterApp />, document.getElementById("main"))
