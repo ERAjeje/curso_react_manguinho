@@ -1,5 +1,6 @@
 import Footer from "@/presentation/components/footer";
 import Header from "@/presentation/components/header";
+import { Input } from "@/presentation/components/input";
 import Spinner from "@/presentation/components/spinner/spinner";
 import React from "react"
 import { LoginContainer, LoginForm, LoginSignup } from './styles';
@@ -21,8 +22,8 @@ const Login: React.FC = () => {
         <Header />
         <LoginForm onSubmit={handleSubmit}>
           <h4>Login</h4>
-          <input type="email" name="email" placeholder="Digite seu e-mail" />
-          <input
+          <Input type="email" name="email" placeholder="Digite seu e-mail" />
+          <Input
             type="password"
             name="password"
             placeholder="Digite sua senha"
