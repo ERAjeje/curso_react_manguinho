@@ -1,10 +1,6 @@
-import { Button } from "@/presentation/components/button";
-import Footer from "@/presentation/components/footer";
-import Header from "@/presentation/components/header";
-import { Input } from "@/presentation/components/input";
-import Spinner from "@/presentation/components/spinner/spinner";
 import React from "react"
 import { LoginContainer, LoginForm, LoginSignup } from './styles';
+import { Button, Footer, Header, Input } from "@/presentation/components";
 
 const Login: React.FC = () => {
     const [success, setSuccess] = React.useState(true);
