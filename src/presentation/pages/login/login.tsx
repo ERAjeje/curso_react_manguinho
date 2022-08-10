@@ -1,3 +1,4 @@
+import { Button } from "@/presentation/components/button";
 import Footer from "@/presentation/components/footer";
 import Header from "@/presentation/components/header";
 import { Input } from "@/presentation/components/input";
@@ -28,7 +29,7 @@ const Login: React.FC = () => {
             name="password"
             placeholder="Digite sua senha"
           />
-          {success ? <button type="submit">Entrar</button> : <Spinner />}
+          <Button type="submit" disabled={false} onClick={() => handleSubmit} showSpinner={!success}>Entrar</Button>
           <LoginSignup href="#">Criar conta</LoginSignup>
         </LoginForm>
         <Footer />

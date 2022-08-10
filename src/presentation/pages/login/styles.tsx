@@ -17,8 +17,8 @@ export const LoginForm = styled.form`
   justify-content: space-between;
   box-sizing: border-box;
   padding: 48px 20px;
-  width: 30%;
-  height: 40%;
+  min-width: 30%;
+  min-height: 40%;
   margin-top: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -41,22 +41,6 @@ export const LoginForm = styled.form`
       outline-color: #7b1fa2;
     }
   }
-
-  & button {
-    margin-top: 24px;
-    border: 1px solid #7b1fa2;
-    color: #7b1fa2;
-    padding: 10px 48px;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #fff;
-
-    &:hover {
-      background-color: #7b1fa2;
-      color: #fff;
-      cursor: pointer;
-    }
-  }
 `
 
 export const LoginSignup = styled.a`
@@ -65,6 +49,7 @@ export const LoginSignup = styled.a`
     color: #7b1fa2;
     font-size: 16px;
     text-transform: none;
+    margin-top: 24px;
 
     &:hover {
         text-decoration: underline;
