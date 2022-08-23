@@ -6,8 +6,6 @@ type ButtonProps = {
   children: React.ReactNode
   onClick: () => void
   type?: 'button' | 'submit' | 'reset'
-  disabled?: boolean
-  showSpinner?: boolean
 }
 
 export const Button = (props: ButtonProps) => {
@@ -18,7 +16,7 @@ export const Button = (props: ButtonProps) => {
       : <button 
           type={props.type} 
           onClick={() => props.onClick()} 
-          disabled={isButtonDisabled} 
+          disabled={isButtonDisabled}
           data-testid='form-button'
         >
           {props.children}
