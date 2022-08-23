@@ -16,4 +16,12 @@ describe('Login', () => {
         const { sut } = makeSut()
         expect(sut.getByTestId('form-button').hasAttribute('disabled')).toBeTruthy()
     })
+
+    it('Should rendering inputs with initial state', () => {
+        const { sut } = makeSut()
+        const email = sut.getByTestId('email-input') as HTMLInputElement
+        const password = sut.getByTestId('password-input') as HTMLInputElement
+        expect(email.defaultValue).toBe('')
+        expect(password.defaultValue).toBe('')
+    })
 })
