@@ -1,9 +1,10 @@
 import React from "react"
 import { LoginContainer, LoginForm, LoginSignup } from './styles';
-import { Button, Footer, Header, Input } from "@/presentation/components";
+import { Button, Error, Footer, Header, Input } from "@/presentation/components";
 
 const Login: React.FC = () => {
     const [success, setSuccess] = React.useState(true);
+    const [error, setError] = React.useState(false);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         setTimeout(() => {
@@ -27,6 +28,7 @@ const Login: React.FC = () => {
           />
           <Button type="submit" disabled={false} onClick={() => handleSubmit} showSpinner={!success}>Entrar</Button>
           <LoginSignup href="#">Criar conta</LoginSignup>
+          {error && <Error message="Usuário ou senha inválidos" />}
         </LoginForm>
         <Footer />
       </LoginContainer>
