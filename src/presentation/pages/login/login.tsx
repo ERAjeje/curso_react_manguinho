@@ -7,14 +7,9 @@ const Login: React.FC = () => {
     const [error, setError] = React.useState(false);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        setTimeout(() => {
-            setSuccess(false);
-        }, 500);
-        setTimeout(() => {
-            setSuccess(true);
-        }, 1500);
-        event.preventDefault();
+      event.preventDefault();
     }
+
     return (
       <LoginContainer>
         <Header />

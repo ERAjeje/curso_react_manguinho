@@ -63,3 +63,10 @@ button:hover {
 	color: #fff;
 	cursor: pointer;
 }
+
+button:disabled {
+	background-color: #ccc;
+	color: #7b1fa27c;
+	cursor: default;
+	border: none;
+}
